@@ -4,10 +4,10 @@ from src.mlproject.exception import CustomException
 from src.mlproject.logger import logging
 import pandas as pd
 from dotenv import load_dotenv
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import r2_score
+
+
 import pymysql
-import pymysql
+
 
 import pickle
 import numpy as np
@@ -31,9 +31,9 @@ def read_sql_data():
             db=db
         )
         logging.info("Connection Established",mydb)
-        df=pd.read_sql_query('Select * from students',mydb)
+        df=pd.read_sql_query('Select * from student',mydb)
         print(df.head())
 
         return df
-    except Exception as ex:
-        raise CustomException(ex)
+    except Exception as e:
+        raise CustomException( e ,sys)
