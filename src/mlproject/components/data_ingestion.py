@@ -23,8 +23,8 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         try:
             ##reading the data from mysql
-            # df=pd.read_csv(os.path.join('notebook/data','raw.csv'))
-            df = read_sql_data()
+            df=pd.read_csv(os.path.join('notebook/data','raw.csv'))
+            # df = read_sql_data()
 
             logging.info("Reading completed mysql database")
 
@@ -43,7 +43,8 @@ class DataIngestion:
 
 
             )
-
-
         except Exception as e:
             raise CustomException(e,sys)
+        
+        
+        
